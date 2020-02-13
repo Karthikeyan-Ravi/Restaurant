@@ -1,0 +1,34 @@
+﻿@model RestaurantEntity.RestaurantFields
+
+@{
+    ViewBag.Title = "DisplayRestaurantDetails1";
+}
+<h1>Restaurant Details</h1>
+<table border="1">
+    <tr>
+        <td>
+            RestaurantName
+        </td>
+        <td>
+            Restauranttype
+        </td>
+        <td>
+            Location
+        </td>
+    </tr>
+    @foreach (RestaurantEntity.RestaurantFields items in ViewBag.RestaurantDetails)
+    {
+        <tr>
+            <td>
+                @items.RestaurantName
+            </td>
+            <td>
+                @items.RestaurantType
+            </td>
+            <td>
+                @items.Location
+            </td>
+        </tr>
+    }
+</table>
+

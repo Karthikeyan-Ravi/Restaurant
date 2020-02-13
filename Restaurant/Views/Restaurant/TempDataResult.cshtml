@@ -1,0 +1,34 @@
+﻿@model RestaurantEntity.RestaurantFields
+
+@{
+    ViewBag.Title = "TempDataResult";
+}
+
+<h2>TempDataResult</h2>
+<table border="1">
+    <tr>
+        <td>
+            RestaurantName
+        </td>
+        <td>
+            RestaurantType
+        </td>
+        <td>
+            Location
+        </td>
+    </tr>
+    @foreach (RestaurantEntity.RestaurantFields items in (List<RestaurantEntity.RestaurantFields>)TempData["RestaurantDetails"])
+    {
+        <tr>
+            <td>
+                @items.RestaurantName
+            </td>
+            <td>
+                @items.RestaurantType
+            </td>
+            <td>
+                @items.Location
+            </td>
+        </tr>
+    }
+</table>
