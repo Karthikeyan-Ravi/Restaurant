@@ -8,6 +8,11 @@ namespace RestaurantEntity
 {
     public class RestaurantFields
     {
+        public int RestaurantId
+        {
+            get;
+            set;
+        }
         public string RestaurantName
         {
             get;
@@ -23,8 +28,11 @@ namespace RestaurantEntity
             get;
             set;
         }
-        public RestaurantFields(string restaurantName,string restaurantType,string location)
+        public RestaurantFields()
+        { }
+        public RestaurantFields(int restaurantId, string restaurantName, string restaurantType, string location)
         {
+            this.RestaurantId = restaurantId;
             this.RestaurantName = restaurantName;
             this.RestaurantType = restaurantType;
             this.Location = location;

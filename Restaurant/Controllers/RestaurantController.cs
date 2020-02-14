@@ -35,5 +35,30 @@ namespace Restaurant.Controllers
             TempData["RestaurantDetails"] = RestaurantList;
             return View();
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(RestaurantFields restaurantFields)
+        {
+            restaurantRepository.Add(restaurantFields);
+            return RedirectToAction("TempDataResult");
+        }
+        public ActionResult Delete(int id)
+        {
+            restaurantRepository.Delete(id);
+            return RedirectToAction("TempDataResult");
+        }
+        public ActionResult Edit(int id)
+        {
+            RestaurantFields restaurantFields = restaurantRepository.GetRestaurantById(id);
+            return View(restaurantFields);
+        }
+        public ActionResult Update(RestaurantFields restaurantFields)
+        {
+            restaurantRepository.Update(restaurantFields);
+            return RedirectToAction("TempdataResult");
+        }
     }
 }

@@ -1,0 +1,34 @@
+﻿@model RestaurantEntity.RestaurantFields
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using(Html.BeginForm("Update","Restaurant",FormMethod.Post))
+{
+    @Html.HiddenFor(Model=>Model.RestaurantId)
+<table>
+    <tr>
+        <td>RestaurantName</td>
+        <td>@Html.EditorFor(Model => Model.RestaurantName)</td>
+    </tr>
+    <tr>
+        <td>RestaurantType</td>
+        <td>@Html.EditorFor(Model => Model.RestaurantType)</td>
+    </tr>
+    <tr>
+        <td>Location</td>
+        <td>@Html.EditorFor(Model => Model.Location)</td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Cancel","DisplayRestaurantDetails")
+        </td>
+        <td>
+            <input type="submit" value="Submit" />
+        </td>
+    </tr>
+</table>
+}
+

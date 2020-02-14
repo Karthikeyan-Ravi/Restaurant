@@ -1,0 +1,53 @@
+﻿@model RestaurantEntity.RestaurantFields
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using(Html.BeginForm("Create","Restaurant",FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>
+            @Html.Label("RestaurantId")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.RestaurantId)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("RestaurantName")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.RestaurantName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("RestaurantType")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.RestaurantType)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Location")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.Location)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Back","DisplayRestaurantDetails")
+        </td>
+        <td>
+            <input type="submit" id="submit" />
+        </td>
+    </tr>
+</table>
+}
+    

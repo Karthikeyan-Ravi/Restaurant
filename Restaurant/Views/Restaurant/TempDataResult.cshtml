@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "TempDataResult";
 }
-
+@Html.ActionLink("Add restaurant details","Create")
 <h2>TempDataResult</h2>
 <table border="1">
     <tr>
@@ -28,6 +28,10 @@
             </td>
             <td>
                 @items.Location
+            </td>
+            <td>
+                @Html.ActionLink("Edit","Edit",new { id=items.RestaurantId})
+                @Html.ActionLink("Delete","Delete",new { id=items.RestaurantId})
             </td>
         </tr>
     }
