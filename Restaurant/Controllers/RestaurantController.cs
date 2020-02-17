@@ -16,7 +16,7 @@ namespace Restaurant.Controllers
         {
             return View();
         }
-        public ActionResult DisplayRestaurantDetails()
+        public ActionResult ViewBagResult()
         {
             
             IEnumerable<RestaurantFields> restaurantList =restaurantRepository.DisplayRestaurantFields();
@@ -35,13 +35,17 @@ namespace Restaurant.Controllers
             TempData["RestaurantDetails"] = RestaurantList;
             return View();
         }
+
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Create(RestaurantFields restaurantFields)
+        [ActionName("Create")]
+        public ActionResult AddRestaurantDetails()
         {
+            RestaurantFields restaurantFields = new RestaurantFields();
+            UpdateModel(restaurantFields);
             restaurantRepository.Add(restaurantFields);
             return RedirectToAction("TempDataResult");
         }
@@ -55,10 +59,12 @@ namespace Restaurant.Controllers
             RestaurantFields restaurantFields = restaurantRepository.GetRestaurantById(id);
             return View(restaurantFields);
         }
-        public ActionResult Update(RestaurantFields restaurantFields)
+        public ActionResult Update()
         {
+            RestaurantFields restaurantFields = new RestaurantFields();
+            UpdateModel(restaurantFields);
             restaurantRepository.Update(restaurantFields);
-            return RedirectToAction("TempdataResult");
+            return RedirectToAction("ViewBagResult");
         }
     }
 }
